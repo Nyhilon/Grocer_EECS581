@@ -1,6 +1,7 @@
 package com.example.grocerapplication
 
 import android.os.Bundle
+import android.widget.Button
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
@@ -33,5 +34,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+
+
     }
 }
