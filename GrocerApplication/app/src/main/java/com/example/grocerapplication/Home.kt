@@ -5,13 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.PopupMenu
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import org.w3c.dom.Text
 
@@ -19,6 +18,8 @@ import org.w3c.dom.Text
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private lateinit var listView: ListView
+val items = ArrayList<CharSequence>()
 
 /**
  * A simple [Fragment] subclass.
@@ -38,8 +39,9 @@ class Home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val textView: TextView = view.findViewById(R.id.home)
         addFAB = view.findViewById(R.id.addList)
+        listView = view.findViewById(R.id.home)
+        val adapter = ArrayAdapter(requireActivity(), android.R.layout.simple_list_item_1, items)
 
         addFAB.setOnClickListener{
             val popupMenu:PopupMenu = PopupMenu(activity, addFAB)
@@ -47,13 +49,16 @@ class Home : Fragment() {
             popupMenu.setOnMenuItemClickListener ( PopupMenu.OnMenuItemClickListener{ item ->
                 when(item.itemId){
                     R.id.rice ->
-                        textView.text = item.title
+                        items.add(item.title)
                     R.id.apple ->
-                        textView.text = item.title
+                        items.add(item.title)
                 }
+                listView.adapter = adapter
                 true
             })
             popupMenu.show()
             }
         }
     }
+
+
