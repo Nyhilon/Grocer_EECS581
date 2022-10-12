@@ -6,12 +6,10 @@ import 'recipes.dart';
 import 'node.dart';
 
 List<Node> pantryItems = [
-  Node(item: "Empty Pantry Item", subItem: "Empty Rating")
+  Node(item: "Empty Pantry Item", subItem: "Empty Freshness")
 ];
 
-List<Node> recipeItems = [
-  Node(item: "Empty Pantry Item", subItem: "Empty Rating")
-];
+List<Node> recipeItems = [Node(item: "Empty Recipe", subItem: "Empty Rating")];
 
 void main() => runApp(MaterialApp(home: MainPage()));
 
