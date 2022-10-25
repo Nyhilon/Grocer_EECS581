@@ -46,6 +46,7 @@ dependencies:
 
   stacked: ^3.0.0
   stacked_services: ^0.9.5
+  url_launcher: ^6.1.6
 
   
 

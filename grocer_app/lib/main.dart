@@ -5,6 +5,8 @@ import 'home.dart';
 import 'recipes.dart';
 import 'node.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:grocer_app/login/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -95,5 +97,18 @@ class _MainPageState extends State<MainPage>
           Home(),
           Recipes(),
         ]),
+        floatingActionButton: ElevatedButton(
+            child: Text('Open Survey'),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                      title: Text('Survey Link'),
+                      content: InkWell(
+                        child: Text('https://forms.gle/NB1pN1rPhUFpQsyR9'),
+                        onTap: () => launchUrl(Uri.parse(
+                            'https://docs.google.com/forms/d/e/1FAIpQLSfz2UvyMQyua-mHAjwgWD-jiUZ5xmvEjofSMkLEA_YBp0UUng/viewform?usp=sf_link')),
+                      )));
+            }),
       );
 }
