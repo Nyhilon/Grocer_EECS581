@@ -5,13 +5,44 @@ import 'home.dart';
 import 'recipes.dart';
 import 'node.dart';
 
+import 'package:grocer_app/login/login_view.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import 'package:grocer_app/app/app.locator.dart';
+import 'package:grocer_app/app/app.router.dart';
+
 List<Node> pantryItems = [
   Node(item: "Empty Pantry Item", subItem: "Empty Freshness")
 ];
 
 List<Node> recipeItems = [Node(item: "Empty Recipe", subItem: "Empty Rating")];
 
-void main() => runApp(MaterialApp(home: MainPage()));
+//void main() => runApp(MaterialApp(home: Home()));
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  setupLocator();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+      // home: MainPage(),
+    );
+  }
+}
 
 class MainPage extends StatefulWidget {
   @override
@@ -20,7 +51,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
-  late TabController controller;
+  TabController controller;
 
   @override
   void initState() {
