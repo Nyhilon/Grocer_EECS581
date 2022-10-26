@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       ),
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
-      // home: MainPage(),
+      home: MainPage(),
     );
   }
 }
