@@ -207,15 +207,7 @@ def recipe_rec(df):
 
     
 def menu_choice():
-    """ Find out what the user wants to do next. """
-    print("\n********************************************")
-    print("Choose one of the following options?")
-    print("   1) Update preferences")
-    print("   2) Evaluate a recipe")
-    print("   3) Get a recipe reccomendation")
-    print("   q) Quit")
-    print("********************************************")
-    print("\n1.Changed my mind\n 2.Is this recipe good?\n 3.Recommend something\n 4.Quit(q)")
+    print("\n1.Recommend Something\n 2.Is this recipe good?\n 3.Changed my mind\n 4.Quit(q)")
     choice = input("Choice: ") 
     if choice.lower() in ['1','2', '3', 'q']:
         return choice.lower()
@@ -247,11 +239,11 @@ def main_loop():
         if choice == 'q':
             print( "Exiting...")
             break     # jump out of while loop
-        elif choice == '1':
-            df = update_preferences(df)
         elif choice == '2':
-            evaluate_recipe(df)
+            df = update_preferences(df)
         elif choice == '3':
+            evaluate_recipe(df)
+        elif choice == '1':
             recipe_rec(df)
         else:
             print("Invalid choice.")
