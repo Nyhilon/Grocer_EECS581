@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'node.dart';
 import 'main.dart';
 
+// constructor for the stateful home widget
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -16,6 +17,7 @@ class _HomeState extends State<Home> {
   Widget itemTemplate(recipeItems) {
     return GestureDetector(
         onTap: () => showDialog(
+              // gives functionality when the recipes are tapped
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
@@ -70,6 +72,7 @@ class _HomeState extends State<Home> {
               },
             ),
         child: Card(
+            // sets the text and style of the recipe cards
             margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
             child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -89,6 +92,7 @@ class _HomeState extends State<Home> {
                 ))));
   }
 
+  // functions gets called when the new recipe button gets pressed, initializes new node in recipe array
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.grey[400],

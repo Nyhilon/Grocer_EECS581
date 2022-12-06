@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 import 'node.dart';
 import 'main.dart';
 
@@ -76,6 +77,7 @@ class _PantryState extends State<Pantry> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
+                    LikeButton(),
                     Text(recipeItems.item,
                         style: TextStyle(
                           fontSize: 18.0,

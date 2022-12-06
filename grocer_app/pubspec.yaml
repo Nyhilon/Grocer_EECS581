@@ -40,7 +40,7 @@ dependencies:
     path: ../box_ui/
   auth_buttons: ^3.0.0
 
-
+  like_button: ^2.0.4
 
   stacked_firebase_auth: ^0.2.2+1
 
